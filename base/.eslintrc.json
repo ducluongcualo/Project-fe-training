@@ -1,0 +1,60 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": [
+      "./tsconfig.json"
+    ],
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "import"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true,
+        "tabWidth": 4,
+        "useTabs": true,
+        "printWidth": 100,
+        "singleQuote": false,
+        "trailingComma": "es5",
+        "bracketSpacing": true,
+        "bracketSameLine": false,
+        "arrowParens": "avoid",
+        "no-mixed-spaces-and-tabs": ["error"],
+        "no-unused-vars": ["error"],
+        "endOfLine": "auto"
+      }
+    ],
+    "@typescript-eslint/no-inferrable-types": 0,
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-extra-semi": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/restrict-plus-operands": 0,
+    "@typescript-eslint/restrict-template-expressions": 0,
+    "@typescript-eslint/no-misused-promises": 1,
+    "@typescript-eslint/explicit-member-accessibility": 1,
+    "@typescript-eslint/explicit-module-boundary-types": 1,
+    "@typescript-eslint/lines-between-class-members": 0,
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-use-before-define": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "quotes": [1, "double"]
+  }
+}
