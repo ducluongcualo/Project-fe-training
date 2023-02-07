@@ -13,64 +13,73 @@ __Technologies__
 We are going to build some simple websites:
  - Thermal IoT
  - BnK Market Admin
- - BnK Market
 
-## User stories
-
+### User stories
+#### Thermal IoT
+##### Device site
 |Requirements|User Story|
 |---|---|
-|User authentication|As a customer,  I should be able to login email and password|
+|Device authentication|As a user,  I should be able to login to device using deviceId and password|
 ||||
-|Product list|As a customer, I would like to see all product of store|
+|Device status|As a user, I would like to see device current status of temperature and humidity|
 ||||
-|Checkout|As a customer, I would like to checkout products which is in stock|
+|Device signal view|As a user, I would like to see signal which the device send to server in real time |
 ||||
-|Order history|As a customer, I would like to know my order history|
+|Device starting|As a user, I need a button to start and to stop sending signal to server|
 ||||
-|User logout|As a customer, I should be able to logout|
+|Device stimulator|As a user, I would like to have button to stimulate anomaly and threshold signals for humidity and temperature|
+||||
+|Device stimulator|As a user, I would like to have button to stimulate anomaly and threshold signals for humidity and temperature|
+
+##### Admin site
+|Requirements|User Story|
+|---|---|
+|Admin authentication|As an admin,  I would like to login using my email and password|
+||||
+|Admin dashboard|As an admin,  I should be able to view my overall system statuses and statistic|
+||||
+|Device starting|As a customer, I need a button to start and to stop sending signal to server|
+||||
+|Admin device searching|As a admin, I would like to search my device via input device ID |
+||||
+|Admin device monitoring|As a admin, I would like to observe my device status in realtime |
+
+#### BnK Market Admin
+|Requirements|User Story|
+|---|---|
+|Admin authentication|As an admin,  I should be able to login email and password|
+||||
+|Product list|As an admin, I would like to manage my product list|
+||||
+|Product detail|As an admin, I would like to manage my product detail|
+||||
+|Customer list|As an admin, I would like to view customer list|
+||||
+|Customer detail|As an admin, I would like to edit customer detail info|
+||||
+|Order list|As an admin, I would like to manage my customer's order|
+||||
+|Order detail|As an admin, I would like to view customer 's order detail|
 
 ## Requirements
 
 __Knowledge__
 
-- The server should be written in NodeJs/ NestJs and Typeorm. The client will consume RESTFUL APIs provided by the server.
+- Member must know how to set up and use antd or mui component library.
+- Member must know how to reuse component and UI templates.
+- Know how to use hooks correctly to handle state, reaction and memorization.
+- Know how to manage app state efficiently.
+- Show considerations for performance, efficiency and clean structure.
 - Follow coding best practices.
-- Understanding of API Designs
-- Understanding of NestJS, API design, ORM, SQL ...
-- Show considerations for Speed, Efficiency, and Scalability in your APIs and Database design and coding
-- Database migration
+- Know how to handle i18n
 - Environment variable
 
 __Practice__
-
-1. Build Structure
-    - Authorization Guard
-    - Error Handling + Response Interceptor
-        - All responses must be the same format
-
-            ```shell
-            {
-                "systemCode": SYSTEM_CODE,
-                "message": "", 
-                "data": {}
-            }
-            ```
-
-        - Data field is different on each API and SYSTEM_CODE is enum
-    - All unexpected exceptions must be caught and return as
-
-        ```shell
-        {
-            "systemCode": SYSTEM_CODE.INTERNAL_SERVER_ERROR,
-            "message": "Error detail come here",
-        }
-        ```
-
-    - Structure database
-        - Configuration
-        - Tables must have key and foreign key
-        - Create a relationship(if needed)
-        - Database must be init and update via script
-    - Input validation
-        - All API input must be valid typing and no redundancy
-    - Create swagger
+1. Project must be Typescript based
+2. Error Handling
+3. All unexpected error must be catch to prevent system crashed
+4. UI template and common component must be reusable
+5. API requests must be as minimal as possible
+6. Render time must be on purpose only
+7. Lighthouse points must be above 7.5 except SEO
+8. App state management must be cleared and easy to maintain
