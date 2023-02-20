@@ -1,4 +1,4 @@
 export enum SystemCode {
-	SUCCESS = "SUCCESS",
-	FAILED = "FAILED",
+    SUCCESS = "SUCCESS",
+    FAILED = "FAILED",
 }

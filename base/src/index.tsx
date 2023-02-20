@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "antd/dist/antd.min.css";
+// import "antd/dist/antd.min.css";
 import "reflect-metadata";
 import "./index.scss";
 

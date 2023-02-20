@@ -12,38 +12,36 @@ export const USER_ACCESS_TOKEN = "access_token";
 
 @Service()
 export class AuthService {
-	@observable
-	private user?: User;
+    @observable
+    private user?: User;
 
-	private httpService = Container.get(HttpService);
+    private httpService = Container.get(HttpService);
 
-	public constructor() {
-		const user = localStorage.getItem("user");
-		if (user) {
-			this.user = JSON.parse(user);
-		}
-	}
+    public constructor() {
+        const user = localStorage.getItem("user");
+        if (user) {
+            this.user = JSON.parse(user);
+        }
+    }
 
-	@action.bound
-	public setUser(user: Partial<User>): void {
-		if (this.user) {
-			this.user = { ...this.user, ...user };
-		}
-	}
+    @action.bound
+    public setUser(user: Partial<User>): void {
+        if (this.user) {
+            this.user = { ...this.user, ...user };
+        }
+    }
 
-	public async signIn(loginDTO: LoginDTO): Promise<LoginResponse> {
-		const { data } = await this.httpService.request(loginDTO);
-		localStorage.setItem(USER_ACCESS_TOKEN, data.access_token);
-		return data;
-	}
+    public async signIn(loginDTO: LoginDTO): Promise<LoginResponse> {
+        const { data } = await this.httpService.request(loginDTO);
+        localStorage.setItem(USER_ACCESS_TOKEN, data.access_token);
+        return data;
+    }
 
-	public async getForgotPass(
-		forgotPassDTO: ForgotPassDTO
-	): Promise<ResponseDTO<ForgotPassResponse>> {
-		return this.httpService.request(forgotPassDTO);
-	}
+    public async getForgotPass(forgotPassDTO: ForgotPassDTO): Promise<ResponseDTO<ForgotPassResponse>> {
+        return this.httpService.request(forgotPassDTO);
+    }
 
-	public async getResetPass(resetPassDTO: ResetPassDTO): Promise<ResponseDTO<ResetPassResponse>> {
-		return this.httpService.request(resetPassDTO);
-	}
+    public async getResetPass(resetPassDTO: ResetPassDTO): Promise<ResponseDTO<ResetPassResponse>> {
+        return this.httpService.request(resetPassDTO);
+    }
 }
